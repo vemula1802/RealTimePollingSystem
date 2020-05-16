@@ -1,0 +1,26 @@
+<div>
+  <h2>Vote for your player of the season</h2>
+
+  <h3> Enter your email id to vote</h3>
+  <input type="text" name="email" #emailValue>
+  <button type="submit" (click)="searchMail(emailValue.value)">Enter</button>
+  <ul>
+    <li *ngFor="let player of playerData">
+      <img [src]="player.image" [alt]="player.name" (click)="castVote(player.shortName, emailValue.value)" [ngClass]="getVoteClasses(player.shortName)">
+
+      <a href="{{player.link}}" target="_blank"><h4>{{player.name}}</h4></a>
+      <p>{{player.Runs}} Runs</p>
+      <p>{{player.matches}} Matches</p>
+      <p>{{player.battingAvg}} Batting Average</p>
+      <p *ngIf="player.bowlingAvg != '-'">{{player.bowlingAvg}} Bowling Average</p>
+<!--      <p>{{player.Wickets}} Wickets</p>-->
+<!--      <p>{{player.Catches}} Catches</p>-->
+    </li>
+
+  </ul>
+
+  <div class="chart-box" *ngIf="voted">
+    <h2>How others voted</h2>
+    <canvas baseChart [data]="chartData" [labels]="chartLabels" [chartType]="chartType"></canvas>
+  </div>
+</div>
