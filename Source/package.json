@@ -25,7 +25,7 @@
     "chart.js": "^2.7.2",
     "core-js": "^2.4.1",
     "dotenv": "^5.0.1",
-    "express": "^4.16.3",
+    "express": "^4.17.3",
     "mongoose": "^5.9.11",
     "ng2-charts": "^1.6.0",
     "pusher": "^1.5.1",
